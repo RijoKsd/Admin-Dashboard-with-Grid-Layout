@@ -1,0 +1,162 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --primary-color: #3b82f6;
+  --secondary-color: #dbeafe;
+  --ternary-color: #eff6ff;
+  --p-20:20px;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+svg {
+  width: 30px;
+  cursor: pointer;
+}
+li {
+  list-style: none;
+}
+a{
+    text-decoration: none;
+}
+
+.container {
+  display: grid;
+
+  grid-template-areas:
+    "sidebar header header header"
+    "sidebar header header header"
+     
+    "sidebar main main aside"
+    "sidebar main main aside"
+    "sidebar main main aside"
+    "sidebar main main aside"
+    "footer footer footer footer";
+  /* height: 100vh; */
+}
+
+header {
+  grid-area: header;
+  background-color: var(--secondary-color);
+  /* height: calc(100vh - 70vh); */
+}
+.header-top {
+  padding: var(--p-20);
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  width: 100%;
+  align-items: center;
+}
+
+.search-bar {
+  display: grid;
+  grid-template-columns: 2fr;
+  align-items: center;
+  position: relative;
+}
+.search-bar input {
+  width: 80%;
+  height: 50px;
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  text-indent: 5%;
+  font-size: 1rem;
+  pointer-events: none;
+  padding: 3px;
+}
+.search-bar svg {
+  position: absolute;
+  pointer-events: none;
+  margin-left: 5px;
+}
+.user-profile {
+  display: grid;
+  grid-template-columns: 50px 50px 150px;
+  align-items: center;
+}
+.user-profile .avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.user-profile .username {
+  font-weight: bold;
+  font-size: 1.2rem;
+
+}
+/* Bottom header */
+.header-bottom {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  padding: var(--p-20);
+  
+}
+.header-bottom--left{
+    display: grid;
+    grid-template-columns:80px auto;
+    align-items: center;
+}
+
+.header-bottom--left .large-logo{
+    width:60px;
+    height: 60px;
+    border-radius: 50%;
+}
+.header-bottom--right ul {
+    display: grid;
+    grid-template-columns: 150px 150px 150px;
+    /* justify-items: start; */
+    place-items: center;
+}
+.header-bottom--right ul a{
+    display: grid;
+    grid-auto-flow: column;
+    place-items: center;
+    padding:10px 20px;
+    background-color: var(--primary-color);
+    border-radius: 30px;
+    color: var(--ternary-color);
+}
+ 
+.header-bottom--right a  svg {
+    width: 24px;  
+    height: 24px;
+    margin-right: 10px; 
+    fill:var(--ternary-color);
+  }
+ 
+
+
+
+
+
+
+
+/* sidebar */
+.sidebar {
+  grid-area: sidebar;
+  background-color: var(--primary-color);
+}
+/* main */
+main {
+  grid-area: main;
+  background-color: red;
+}
+/* aside */
+aside {
+  grid-area: aside;
+  background-color: green;
+}
+/* footer */
+footer {
+  grid-area: footer;
+  background-color: aqua;
+}
