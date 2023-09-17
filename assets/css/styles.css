@@ -12,6 +12,7 @@
   --white-color: #ffffff;
   --blue-300: #93c5fd;
   --p-20: 20px;
+  --shadow: 3px 3px 10px 3px #3535356f;
 }
 
 body {
@@ -33,19 +34,20 @@ a {
   display: grid;
 
   grid-template-areas:
-    "sidebar header header header"
-    "sidebar header header header"
-    "sidebar main main aside"
-    "sidebar main main aside"
-    "sidebar main main aside"
-    "sidebar main main aside"
-    "footer footer footer footer";
+    "sidebar header header header header header"
+    "sidebar header header header header header"
+    "sidebar main main main main aside"
+    "sidebar main main main main aside"
+    "sidebar main main main main aside"
+    "sidebar main main main main aside"
+    "footer footer footer footer footer footer";
   /* grid-template-rows: 200px 500px 100px; */
 }
 
 header {
   grid-area: header;
   background-color: var(--secondary-color);
+  box-shadow: var(--shadow);
 }
 .header-top {
   padding: var(--p-20);
@@ -202,7 +204,7 @@ main h2 {
 .projects {
   padding: var(--p-20);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
 }
 .project-card {
@@ -212,6 +214,7 @@ main h2 {
   border-radius: 10px;
   display: grid;
   grid-template-rows: 62px 1fr 50px;
+  box-shadow: var(--shadow);
 }
 .project-links ul {
   display: grid;
@@ -238,10 +241,60 @@ main h2 {
 /* aside */
 aside {
   grid-area: aside;
-  background-color: green;
+  background-color: var(--ternary-color);
+  padding: var(--p-20);
 }
+.announcement,
+.trending--content {
+  padding: var(--p-20);
+  background-color: var(--secondary-color);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  margin-top: 20px;
+}
+
+.announcement--content {
+  padding: var(--p-20);
+}
+.announcement--content--body {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.trending {
+  margin-top: 40px;
+}
+.announcement--content--header h3 {
+  font-size: 1.5rem;
+}
+.trending--content--body {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 50px 150px;
+  place-items: center;
+  margin-top: 20px;
+}
+.trending--content--profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  mix-blend-mode: multiply;
+}
+.trending--content--username {
+  display: grid;
+  gap: 5px;
+}
+
 /* footer */
 footer {
   grid-area: footer;
-  background-color: aqua;
+  background-color: var(--secondary-color);
+  padding: 10px;
+  text-align: center;
+}
+footer span {
+  font-size: 1.2rem;
+}
+footer a {
+  color: #000;
+  font-weight: bold;
 }
