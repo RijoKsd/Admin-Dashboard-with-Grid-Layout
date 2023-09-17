@@ -32,7 +32,6 @@ a {
 
 .container {
   display: grid;
-
   grid-template-areas:
     "sidebar header header header header header"
     "sidebar header header header header header"
@@ -41,7 +40,6 @@ a {
     "sidebar main main main main aside"
     "sidebar main main main main aside"
     "footer footer footer footer footer footer";
-  /* grid-template-rows: 200px 500px 100px; */
 }
 
 header {
@@ -155,10 +153,9 @@ header {
   width: 50px;
   height: 50px;
   transition: fill 0.5s ease-in-out;
-}
-.sidebar svg.large-icon:hover {
   fill: #000000a0;
 }
+
 .side-panel-header span {
   font-weight: bold;
   font-size: 1.5rem;
@@ -297,4 +294,72 @@ footer span {
 footer a {
   color: #000;
   font-weight: bold;
+}
+
+/* Media Queries */
+@media (max-width: 992px) {
+  .container {
+    grid-template-areas:
+      "sidebar header header header header  "
+      "sidebar header header header header  "
+      "sidebar main main main main  "
+      "sidebar main main main main  "
+      "sidebar main main main main  "
+      "sidebar aside aside aside  aside  "
+      "footer footer footer footer footer  ";
+  }
+  .profile-details h2 .user-id {
+    /* font-size: 1.1rem; */
+    display: none;
+  }
+  .profile-details h2 {
+    font-size: 1.1rem;
+  }
+  .user-profile {
+    grid-template-columns: 50px 50px;
+    justify-content: end;
+  }
+  .user-profile .username {
+    display: none;
+  }
+  .sidebar .title.hidden {
+    display: none;
+  }
+  .header-bottom--right ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    place-items: center;
+  }
+  .sidebar svg.large-icon {
+    width: 60px;
+    height: 60px;
+    margin-top: 48%;
+    animation: dash 1.5s linear forwards;
+  }
+  .sidebar .nav {
+    margin-top: 40%;
+  }
+  @keyframes dash {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  .project-links ul svg {
+    width: 40px;
+    height: 40px;
+  }
+  .project-card--body li {
+    font-size: 1.5rem;
+  }
+  .project-card--header h3 {
+    font-size: 2rem;
+  }
+  .side-panel-navigations svg {
+    width: 35px;
+    height: 35px;
+  }
 }
