@@ -10,6 +10,7 @@
   --secondary-color: #dbeafe;
   --ternary-color: #eff6ff;
   --white-color: #ffffff;
+  --blue-300: #93c5fd;
   --p-20: 20px;
 }
 
@@ -144,13 +145,23 @@ header {
 .sidebar .side-panel-header {
   display: grid;
   place-items: center;
+  justify-items: start;
   grid-auto-flow: column;
   gap: 10px;
 }
 .sidebar svg.large-icon {
   width: 50px;
   height: 50px;
+  transition: fill 0.5s ease-in-out;
 }
+.sidebar svg.large-icon:hover {
+  fill: #000000a0;
+}
+.side-panel-header span {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
 .side-panel-navigations {
   margin-top: 3.5rem;
 }
@@ -165,6 +176,10 @@ nav ul a {
 
 nav svg {
   justify-self: start;
+  transition: all 0.5s ease-in-out;
+}
+nav svg:hover {
+  fill: #000000a0;
 }
 nav ul span {
   justify-self: start;
@@ -178,8 +193,48 @@ nav ul span {
 /* main */
 main {
   grid-area: main;
-  background-color: red;
+  background-color: var(--blue-300);
+  padding: var(--p-20);
 }
+main h2 {
+  font-size: 2.2rem;
+}
+.projects {
+  padding: var(--p-20);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+}
+.project-card {
+  padding: var(--p-20);
+  background-color: var(--secondary-color);
+  border-left: 10px solid var(--primary-color);
+  border-radius: 10px;
+  display: grid;
+  grid-template-rows: 62px 1fr 50px;
+}
+.project-links ul {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: end;
+  gap: 10px;
+  align-items: end;
+}
+.project-links .star.active {
+  fill: var(--primary-color);
+}
+.project-card--header h3 {
+  padding: 5px;
+  font-size: 1.8rem;
+}
+.project-card--body {
+  margin-top: 10px;
+}
+.project-card--body li {
+  padding: 5px;
+  font-size: 1.2rem;
+}
+
 /* aside */
 aside {
   grid-area: aside;
